@@ -1,0 +1,14 @@
+version: '3'
+services:
+  app:
+    build:
+      context: .
+    tty: true
+    environment:
+      - NODE_OPTIONS=--openssl-legacy-provider
+    volumes:
+    - ./react-storybook:/usr/src/app
+    command: sh -c "npm start" ##プロジェクト名に応じて修正
+    ports:
+    - "3000:3000"
+    - "6006:6006"
